@@ -1,2 +1,62 @@
 /* src/index.css */
 @import "tailwindcss";
+
+/* Custom font settings */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* Custom base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  @apply text-gray-800;
+}
+
+/* Smooth scrolling for anchor links */
+a[href^="#"] {
+  scroll-margin-top: 100px;
+}
+
+/* Animations - to be used with Framer Motion */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Custom utility classes */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Focus styles for accessibility */
+:focus {
+  @apply outline-none ring-2 ring-blue-500;
+}
+
+/* Mobile-first design adjustments */
+@media (max-width: 640px) {
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  .container {
+    @apply px-4;
+  }
+}

@@ -3,10 +3,14 @@ import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import WorkshopSection from "./components/WorkShopSection";
 import AboutSection from "./components/AboutSection";
+import ServicesSection from "./components/ServicesSection";
+import ApproachBanner from "./components/ApproachBanner";
+import InstagramFeed from "./components/InstagramFeed";
 import TestimonialsSection from "./components/TestimonialSection";
-import ContactSection from "./components/ContactSection";
+import WorkshopSection from "./components/WorkShopSection";
+import CallToAction from "./components/CallToAction";
+import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
 
 function App() {
@@ -16,11 +20,15 @@ function App() {
       <Hero />
       <main>
         <AboutSection />
+        <ApproachBanner />
+        <ServicesSection />
         <WorkshopSection />
         <TestimonialsSection />
-        <ContactSection />
+        <InstagramFeed />
+        <CallToAction />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
