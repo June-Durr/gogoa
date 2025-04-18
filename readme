@@ -1,0 +1,102 @@
+# GOGOA Landing Page
+
+This landing page was built for GOGOA Studio, a creative storytelling hub dedicated to bridging the gap between science and effective storytelling.
+
+## Project Structure
+
+The landing page consists of six main sections:
+
+1. **Hero Section** - About section that serves as the landing screen with a "Register Now" button that scrolls to the form.
+2. **What You'll Experience** - Highlights what participants will gain from the workshop.
+3. **Workshop Details** - Information about a specific workshop event.
+4. **Benefits Section** - The advantages of the storytelling approach.
+5. **Testimonials** - Success stories from previous participants.
+6. **Contact Form** - Registration form integrated with Email.js.
+
+## Setup Instructions
+
+### 1. Install Dependencies
+
+First, clone the repository and install the dependencies:
+
+```bash
+npm install
+```
+
+### 2. Add Images
+
+Add the following images to the `/public/images/` directory:
+
+- `section1.jpg` - Hero section image
+- `section2.jpg` - What You'll Experience section image
+- `section3.jpg` - Workshop section image
+- `section4.jpg` - Benefits section image
+- `section5.jpg` - Testimonials section image
+
+### 3. Set Up Email.js
+
+To set up Email.js for the contact form:
+
+1. Create an account at [Email.js](https://www.emailjs.com/)
+2. Install the Email.js library:
+
+```bash
+npm install emailjs-com
+```
+
+3. Configure your service, template, and user ID in the `ContactForm.jsx` component.
+
+Update the following lines in `ContactForm.jsx`:
+
+```javascript
+await emailjs.sendForm(
+  "YOUR_SERVICE_ID",
+  "YOUR_TEMPLATE_ID",
+  formRef.current,
+  "YOUR_USER_ID"
+);
+```
+
+### 4. Run the Development Server
+
+```bash
+npm run dev
+```
+
+The site will be available at http://localhost:5173/
+
+### 5. Build for Production
+
+When you're ready to deploy:
+
+```bash
+npm run build
+```
+
+This will create optimized production files in the `dist` directory that you can deploy to Netlify or your preferred hosting service.
+
+## Component Overview
+
+- **Hero.jsx** - The main landing section with a prominent call-to-action.
+- **ExperienceSection.jsx** - Highlights what participants will learn and experience.
+- **WorkshopSection.jsx** - Contains details about the workshop event (date, time, location, etc.).
+- **BenefitsSection.jsx** - Shows the benefits of the storytelling approach.
+- **TestimonialSection.jsx** - Displays testimonials from previous participants.
+- **ContactForm.jsx** - Registration form with Email.js integration.
+
+## Customization
+
+To customize this landing page for different events:
+
+1. Update the workshop details in `WorkshopSection.jsx`
+2. Modify the testimonials in `TestimonialSection.jsx`
+3. Update the registration form fields in `ContactForm.jsx` if needed
+
+## Deployment
+
+This site is currently deployed at: https://gogoaapp.netlify.app/
+
+To deploy a new version:
+
+1. Push changes to the GitHub repository
+2. Netlify will automatically deploy the updates

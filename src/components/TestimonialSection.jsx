@@ -1,28 +1,28 @@
-// src/components/TestimonialsSection.jsx
+// src/components/TestimonialsSection.jsx - Updated
 import React from "react";
 import { motion } from "framer-motion";
 
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "Conservation International",
-      role: "Environmental NGO",
+      name: "Dr. Maria Rodriguez",
+      role: "Marine Biologist, Ocean Conservation Institute",
       quote:
-        "GOGOA Studio transformed our complex conservation data into compelling narratives that resonated with our donors and stakeholders.",
-      image: "/images/testimonial-1.jpg",
+        "GOGOA's storytelling workshop transformed how I communicate my research. What used to be complex data is now compelling narrative that resonates with both colleagues and the public.",
+      image: "/images/section5.jpg",
     },
     {
-      name: "Dr. Maria Rodriguez",
-      role: "Marine Biologist",
+      name: "James Wilson",
+      role: "Director, Climate Science Foundation",
       quote:
-        "Their ability to translate scientific research into engaging stories helped us secure funding and raise awareness for our ocean conservation initiatives.",
+        "After working with GOGOA, our fundraising materials became significantly more effective. Their approach to science storytelling helped us increase donor engagement by over 40%.",
       image: "/images/testimonial-2.jpg",
     },
     {
-      name: "EcoScience Foundation",
-      role: "Research Organization",
+      name: "Dr. Sarah Chen",
+      role: "Environmental Researcher",
       quote:
-        "GOGOA's storytelling approach brought our scientific findings to life in ways that made our work accessible and meaningful to the general public.",
+        "The techniques I learned at GOGOA's workshop have been invaluable. I've secured two major grants since applying their storytelling framework to my proposals.",
       image: "/images/testimonial-3.jpg",
     },
   ];
@@ -45,12 +45,11 @@ const TestimonialsSection = () => {
           className="max-w-3xl mx-auto text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
-            Who We've Helped
+            Success Stories
           </h2>
           <p className="text-lg text-gray-700">
-            We've collaborated with scientists, conservationists, and
-            organizations to make their important work more accessible and
-            impactful.
+            Hear from scientists and organizations who have transformed their
+            communication through our storytelling approach.
           </p>
         </motion.div>
 

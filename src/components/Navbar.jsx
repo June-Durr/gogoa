@@ -1,4 +1,4 @@
-// src/components/Navbar.jsx
+// src/components/Navbar.jsx - Updated
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
@@ -24,9 +24,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white shadow-md py-2 text-blue-900"
-          : "bg-transparent py-4 text-white"
+        isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -40,18 +38,22 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
           >
             <img
-              src="/images/gogoa-logo.png"
+              src="/images/logo.png"
               alt="GOGOA"
-              className={`h-10 w-auto ${
-                isScrolled ? "filter-none" : "brightness-0 invert"
+              className={`h-12 w-auto ${
+                isScrolled ? "opacity-100" : "opacity-0"
               }`}
+              style={{
+                maxHeight: "50px",
+                width: "auto",
+                transition: "opacity 0.3s ease-in-out",
+              }}
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src =
                   "https://dummyimage.com/150x50/1a365d/ffffff&text=GOGOA";
               }}
             />
-            <span className={`ml-2 font-bold text-xl`}>STUDIO</span>
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -78,14 +80,14 @@ const Navbar = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <a
-                href="#services"
+                href="#experience"
                 className={`${
                   isScrolled
                     ? "text-blue-900 hover:text-blue-600"
                     : "text-white hover:text-yellow-300"
                 } transition-colors duration-300 font-medium`}
               >
-                Services
+                Experience
               </a>
             </motion.div>
             <motion.div
@@ -94,14 +96,14 @@ const Navbar = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <a
-                href="#testimonials"
+                href="#workshop"
                 className={`${
                   isScrolled
                     ? "text-blue-900 hover:text-blue-600"
                     : "text-white hover:text-yellow-300"
                 } transition-colors duration-300 font-medium`}
               >
-                Testimonials
+                Workshop
               </a>
             </motion.div>
             <motion.div
@@ -118,6 +120,10 @@ const Navbar = () => {
                     ? "border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
                     : "border-white text-white hover:bg-white hover:text-blue-900"
                 } border-2 px-4 py-2 rounded-lg transition-colors duration-300 font-medium`}
+                style={{
+                  opacity: isScrolled ? 1 : 0,
+                  pointerEvents: isScrolled ? "auto" : "none",
+                }}
               >
                 Visit Main Site
               </a>
@@ -185,18 +191,18 @@ const Navbar = () => {
               About
             </a>
             <a
-              href="#services"
+              href="#experience"
               className="text-blue-900 hover:text-blue-600 py-2 px-3 rounded-md hover:bg-gray-100 transition-colors duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
-              Services
+              Experience
             </a>
             <a
-              href="#testimonials"
+              href="#workshop"
               className="text-blue-900 hover:text-blue-600 py-2 px-3 rounded-md hover:bg-gray-100 transition-colors duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
-              Testimonials
+              Workshop
             </a>
             <a
               href="https://gogoa.com.co/page"

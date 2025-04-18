@@ -1,15 +1,13 @@
-// src/App.jsx
+// src/App.jsx - Updated
 import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import AboutSection from "./components/AboutSection";
-import ServicesSection from "./components/ServicesSection";
-import ApproachBanner from "./components/ApproachBanner";
-import InstagramFeed from "./components/InstagramFeed";
-import TestimonialsSection from "./components/TestimonialSection";
-import WorkshopSection from "./components/WorkShopSection";
-import CallToAction from "./components/CallToAction";
+import Hero from "./components/Hero"; // Section 1
+import ExperienceSection from "./components/ExperienceSection"; // Section 2
+import WorkshopSection from "./components/WorkshopSection"; // Section 3
+import BenefitsSection from "./components/BenefitsSection"; // Section 4
+import TestimonialsSection from "./components/TestimonialSection"; // Section 5
+import ContactForm from "./components/ContactForm"; // Section 6
 import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
 
@@ -17,15 +15,13 @@ function App() {
   return (
     <div className="bg-white">
       <Navbar />
-      <Hero />
+      <Hero /> {/* Section 1 */}
       <main>
-        <AboutSection />
-        <ApproachBanner />
-        <ServicesSection />
-        <WorkshopSection />
-        <TestimonialsSection />
-        <InstagramFeed />
-        <CallToAction />
+        <ExperienceSection /> {/* Section 2 */}
+        <WorkshopSection /> {/* Section 3 */}
+        <BenefitsSection /> {/* Section 4 */}
+        <TestimonialsSection /> {/* Section 5 */}
+        <ContactForm /> {/* Section 6 */}
       </main>
       <Footer />
       <ScrollToTop />

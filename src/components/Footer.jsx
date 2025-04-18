@@ -1,6 +1,5 @@
 // src/components/Footer.jsx
 import React from "react";
-
 const Footer = () => {
   return (
     <footer className="bg-blue-900 text-white">
@@ -10,17 +9,7 @@ const Footer = () => {
           {/* Logo and tagline */}
           <div className="md:col-span-1">
             <div className="flex items-center mb-4">
-              <img
-                src="/images/gogoa-logo.png"
-                alt="GOGOA"
-                className="h-10 w-auto brightness-0 invert"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src =
-                    "https://dummyimage.com/150x50/1a365d/ffffff&text=GOGOA";
-                }}
-              />
-              <span className="ml-2 font-bold text-xl">STUDIO</span>
+              <span className="ml-2 font-bold text-xl">GOGOA STUDIO</span>
             </div>
             <p className="text-blue-200 mb-6">
               Where science meets storytelling. Bridging the gap between complex

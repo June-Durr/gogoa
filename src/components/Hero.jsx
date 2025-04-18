@@ -1,8 +1,15 @@
-// src/components/Hero.jsx
+// Updated src/components/Hero.jsx
 import React from "react";
-import { motion } from "framer-motion"; // For animations
+import { motion } from "framer-motion";
 
 const Hero = () => {
+  const scrollToForm = () => {
+    const formElement = document.getElementById("contact-form");
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="relative bg-gradient-to-r from-blue-900 to-indigo-800 overflow-hidden">
       {/* Background pattern */}
@@ -38,12 +45,12 @@ const Hero = () => {
                   Our Services
                 </a>
 
-                <a
-                  href="#workshop"
+                <button
+                  onClick={scrollToForm}
                   className="px-8 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-900 font-semibold rounded-lg transition duration-300"
                 >
-                  3-Hour Workshop
-                </a>
+                  Reserve Your Spot!
+                </button>
               </div>
             </motion.div>
           </div>
@@ -58,7 +65,7 @@ const Hero = () => {
             >
               <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl">
                 <img
-                  src="/images/storytelling-concept.jpg"
+                  src="/images/logo3.png"
                   alt="Science Storytelling - GOGOA Studio"
                   className="w-full h-auto"
                   onError={(e) => {
