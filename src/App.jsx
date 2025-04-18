@@ -4,7 +4,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero"; // Section 1
 import ExperienceSection from "./components/ExperienceSection"; // Section 2
-import WorkshopSection from "./components/WorkshopSection"; // Section 3
+import WorkShopSection from "./components/WorkShopSection"; // Section 3
 import BenefitsSection from "./components/BenefitsSection"; // Section 4
 import TestimonialsSection from "./components/TestimonialSection"; // Section 5
 import ContactForm from "./components/ContactForm"; // Section 6
@@ -18,7 +18,7 @@ function App() {
       <Hero /> {/* Section 1 */}
       <main>
         <ExperienceSection /> {/* Section 2 */}
-        <WorkshopSection /> {/* Section 3 */}
+        <WorkShopSection /> {/* Section 3 */}
         <BenefitsSection /> {/* Section 4 */}
         <TestimonialsSection /> {/* Section 5 */}
         <ContactForm /> {/* Section 6 */}
