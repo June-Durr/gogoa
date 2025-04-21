@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 // Note: You'll need to install emailjs-com package:
 // npm install emailjs-com
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -36,15 +37,14 @@ const ContactForm = () => {
 
     try {
       // For email.js implementation:
-      // Replace with your actual emailjs service ID, template ID, and user ID
-      /*
+      // Replace with your actual EmailJS service ID, template ID, and public key
+
       await emailjs.sendForm(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID', 
+        "service_bvljtmj", // Replace 'service_bvljtmj' with your actual Service ID
+        "template_of0lldh", // Replace 'template_of0lldh' with your actual Template ID
         formRef.current,
-        'YOUR_USER_ID'
+        "X2c5eM1-C7UfNvc_T" // Replace 'X2c5eM1-C7UfNvc_T' with your actual Public Key
       );
-      */
 
       // For now, we'll simulate a successful submission
       await new Promise((resolve) => setTimeout(resolve, 1000));

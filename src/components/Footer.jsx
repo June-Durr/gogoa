@@ -69,7 +69,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#about"
+                  href="https://gogoa.com.co/historias"
                   className="text-blue-200 hover:text-yellow-300 transition-colors"
                 >
                   About Us
@@ -77,23 +77,23 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#services"
-                  className="text-blue-200 hover:text-yellow-300 transition-colors"
-                >
-                  Our Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#testimonials"
-                  className="text-blue-200 hover:text-yellow-300 transition-colors"
-                >
-                  Testimonials
-                </a>
-              </li>
-              <li>
-                <a
                   href="https://gogoa.com.co/page"
+                  className="text-blue-200 hover:text-yellow-300 transition-colors"
+                >
+                  Store
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://gogoa.com.co/proyectos"
+                  className="text-blue-200 hover:text-yellow-300 transition-colors"
+                >
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://gogpageoa.com.co/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-200 hover:text-yellow-300 transition-colors"
@@ -112,9 +112,7 @@ const Footer = () => {
               science storytelling.
             </p>
             <a
-              href="https://gogoa.com.co/page"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:alberto.camachojr@hotmail.com"
               className="inline-block bg-blue-700 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
             >
               Get in Touch

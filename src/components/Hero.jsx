@@ -11,7 +11,10 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative bg-gradient-to-r from-blue-900 to-indigo-800 overflow-hidden">
+    <div
+      id="about"
+      className="relative bg-gradient-to-r from-blue-900 to-indigo-800 overflow-hidden"
+    >
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[url('/pattern-bg.svg')] bg-repeat"></div>
@@ -39,7 +42,7 @@ const Hero = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <a
-                  href="#services"
+                  href="#workshop"
                   className="px-8 py-3 bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-semibold rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-105"
                 >
                   Our Services
@@ -63,7 +66,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl">
+              <div className="relative z-10 rounded-lg overflow-hidden">
                 <img
                   src="/images/logo3.png"
                   alt="Science Storytelling - GOGOA Studio"
