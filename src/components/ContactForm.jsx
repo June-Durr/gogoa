@@ -1,8 +1,6 @@
 // src/components/ContactForm.jsx
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-// Note: You'll need to install emailjs-com package:
-// npm install emailjs-com
 import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
@@ -14,6 +12,7 @@ const ContactForm = () => {
     message: "",
   });
 
+  const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({
     submitted: false,
     success: false,
@@ -23,31 +22,91 @@ const ContactForm = () => {
   const [loading, setLoading] = useState(false);
   const formRef = useRef();
 
+  // Validate email format
+  const isValidEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
+  // Validate phone number format (optional field)
+  const isValidPhone = (phone) => {
+    if (!phone) return true; // Phone is optional
+    const regex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+    return regex.test(phone);
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Required fields
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!isValidEmail(formData.email))
+      newErrors.email = "Please enter a valid email";
+
+    // Optional field with format validation
+    if (formData.phone && !isValidPhone(formData.phone)) {
+      newErrors.phone = "Please enter a valid phone number";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
+
+    // Clear error when field is being edited
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: null,
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate form before submission
+    if (!validateForm()) {
+      // If validation fails, focus on the first field with an error
+      const firstErrorField = Object.keys(errors)[0];
+      if (firstErrorField && formRef.current) {
+        const errorElement = formRef.current.querySelector(
+          `[name="${firstErrorField}"]`
+        );
+        if (errorElement) errorElement.focus();
+      }
+      return;
+    }
+
     setLoading(true);
 
     try {
-      // For email.js implementation:
-      // Replace with your actual EmailJS service ID, template ID, and public key
-
+      // EmailJS implementation with recipient set to ideas@gogoa.com.co
+      // Make sure your EmailJS template has a field for the recipient email
       await emailjs.sendForm(
-        "service_bvljtmj", // Replace 'service_bvljtmj' with your actual Service ID
-        "template_of0lldh", // Replace 'template_of0lldh' with your actual Template ID
+        "service_bvljtmj",
+        "template_of0lldh",
         formRef.current,
-        "X2c5eM1-C7UfNvc_T" // Replace 'X2c5eM1-C7UfNvc_T' with your actual Public Key
+        "X2c5eM1-C7UfNvc_T",
+        {
+          to_email: "ideas@gogoa.com.co", // Setting the recipient email
+        }
       );
 
-      // For now, we'll simulate a successful submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Google Analytics event tracking for form submission (if GA is set up)
+      if (window.gtag) {
+        window.gtag("event", "form_submission", {
+          event_category: "Workshop",
+          event_label: "Registration Form",
+        });
+      }
 
       setStatus({
         submitted: true,
@@ -139,10 +198,18 @@ const ContactForm = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"
+                  className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 ${
+                    errors.name ? "border-red-500" : ""
+                  }`}
                   placeholder="Your Name"
                   required
+                  aria-describedby={errors.name ? "name-error" : undefined}
                 />
+                {errors.name && (
+                  <p id="name-error" className="text-red-500 text-xs mt-1">
+                    {errors.name}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -158,10 +225,18 @@ const ContactForm = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"
+                  className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 ${
+                    errors.email ? "border-red-500" : ""
+                  }`}
                   placeholder="Your Email"
                   required
+                  aria-describedby={errors.email ? "email-error" : undefined}
                 />
+                {errors.email && (
+                  <p id="email-error" className="text-red-500 text-xs mt-1">
+                    {errors.email}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -177,9 +252,17 @@ const ContactForm = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"
+                  className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 ${
+                    errors.phone ? "border-red-500" : ""
+                  }`}
                   placeholder="Your Phone (optional)"
+                  aria-describedby={errors.phone ? "phone-error" : undefined}
                 />
+                {errors.phone && (
+                  <p id="phone-error" className="text-red-500 text-xs mt-1">
+                    {errors.phone}
+                  </p>
+                )}
               </div>
 
               <div>

@@ -1,6 +1,7 @@
 // src/components/WorkshopSection.jsx - Updated
 import React from "react";
 import { motion } from "framer-motion";
+import CountdownTimer from "./CountdownTimer";
 
 const WorkshopSection = () => {
   return (
@@ -173,12 +174,9 @@ const WorkshopSection = () => {
               </div>
             </div>
 
-            <a
-              href="#contact-form"
-              className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105"
-            >
-              Register Now
-            </a>
+            <div className="mt-8">
+              <CountdownTimer />
+            </div>
           </motion.div>
         </div>
       </div>
